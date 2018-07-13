@@ -106,13 +106,16 @@ class App extends Component {
         if (activeAchievement !== null) {
             return (
                 <div>
-                    <Navbar color="light" light expand="md">
+                    <div class="p-3 mb-2 bg-primary text-white">
+                    <Navbar>
                         <Navbar.Header>
                             <Navbar.Brand>
                                 Unicorn Game Achievements
                             </Navbar.Brand>
                         </Navbar.Header>
                     </Navbar>
+                    </div>
+                    <div id="MainBlock">
                     <Grid>
                         <Row>
                             <Col md={4} sm={4}>
@@ -125,8 +128,8 @@ class App extends Component {
                                         this.setState({ activeAchievement: id });
                                     }}
                                 >
-                                    {Achievements.map((place, id) => (
-                                        <NavItem key={id} eventKey={id}>{place.name}</NavItem>
+                                    {Achievements.map((names, id) => (
+                                        <NavItem key={id} eventKey={id}>{names.name}</NavItem>
                                     ))}
                                 </Nav>
                             </Col>
@@ -138,18 +141,22 @@ class App extends Component {
                             </Col>
                         </Row>
                     </Grid>
+                    </div>
                 </div>
             );
         }else {
             return (
                 <div>
-                    <Navbar>
+                    <div class="p-3 mb-2 bg-primary text-white">
+                    <Navbar >
                         <Navbar.Header>
                             <Navbar.Brand>
                                 Unicorn Game Achievements
                             </Navbar.Brand>
                         </Navbar.Header>
                     </Navbar>
+                    </div>
+                    <div id="MainBlock">
                     <Grid>
                         <Row>
                             <Col md={4} sm={4}>
@@ -172,10 +179,12 @@ class App extends Component {
                             </Col>
                         </Row>
                     </Grid>
+                    </div>
                 </div>
             );
         }
     }
 }
+
 
 export default App;
