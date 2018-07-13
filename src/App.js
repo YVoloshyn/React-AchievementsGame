@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.css";
-//import "bootswatch/journal/bootstrap.css";
-
+//import "bootstrap/dist/css/bootstrap.css";
+import "bootswatch/journal/bootstrap.css";
 
 
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
@@ -107,7 +106,7 @@ class App extends Component {
         if (activeAchievement !== null) {
             return (
                 <div>
-                    <Navbar>
+                    <Navbar color="light" light expand="md">
                         <Navbar.Header>
                             <Navbar.Brand>
                                 Unicorn Game Achievements
@@ -163,8 +162,8 @@ class App extends Component {
                                         this.setState({ activeAchievement: id });
                                     }}
                                 >
-                                    {Achievements.map((place, id) => (
-                                        <NavItem key={id} eventKey={id}>{place.name}</NavItem>
+                                    {Achievements.map((name, id) => (
+                                        <NavItem key={id} eventKey={id}>{name.name}</NavItem>
                                     ))}
                                 </Nav>
                             </Col>
