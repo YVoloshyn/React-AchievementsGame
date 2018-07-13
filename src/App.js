@@ -55,7 +55,7 @@ class AchievementsDisplay extends Component{
         if (ID == 1 || ID == null) {
             return (
                 <div align="center">
-                    <img src={require('./magnetBomb.png')} alt="img"/>
+                    <img src={require('./img/magnet.png')} alt="img"/>
                     <h2>Want to have "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
@@ -63,7 +63,7 @@ class AchievementsDisplay extends Component{
         }else if (ID == 2 || ID == null) {
             return (
                 <div align="center">
-                    <img src={require('./perfectionist.png')} alt="img"/>
+                    <img src={require('./img/perfectionist.png')} alt="img"/>
                     <h2>Want to become a "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
@@ -71,7 +71,7 @@ class AchievementsDisplay extends Component{
         }else if (ID == 3 || ID == null) {
             return (
                 <div align="center">
-                    <img src={require('./nightShift.png')} alt="img"/>
+                    <img src={require('./img/nightShift.png')} alt="img"/>
                     <h2>Want to get a "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
@@ -79,7 +79,7 @@ class AchievementsDisplay extends Component{
         }else if (ID == 4 || ID == null) {
             return (
                 <div align="center">
-                    <img src={require('./ninja.png')} alt="img"/>
+                    <img src={require('./img/ninja.png')} alt="img"/>
                     <h2>Want to get a "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
@@ -94,6 +94,7 @@ class AchievementNotSelected extends Component {
         return (
             <div align="center">
             <h2>Please, select any Achievement to read more!</h2>
+            <img src={require('./img/arrow.png')} alt="img"/>
             </div>
         )
     }
@@ -187,10 +188,10 @@ class App extends Component {
                     </Grid>
                     </div>
                 </div>
+
             );
         }
     }
 }
-
 
 export default App;
