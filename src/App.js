@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
 
 const Achievements = [
     { name: "Bomb Magnet", id: "1" },
@@ -98,37 +100,73 @@ class App extends Component {
         const activeAchievement = this.state.activeAchievement;
         if (activeAchievement !== null) {
             return (
-                <div className="App">
-                    {Achievements.map((place, id) => (
-                        <button
-                            key={id}
-                            onClick={() => {
-                                this.setState({activeAchievement: id});
-                            }}
-                        >
-                            {place.name}
-                        </button>
-                    ))}
-                    <AchievementsDisplay
-                        key={activeAchievement}
-                        id={Achievements[activeAchievement].id}
-                    />
+                <div>
+                    <Navbar>
+                        <Navbar.Header>
+                            <Navbar.Brand>
+                                Unicorn Game Achievements
+                            </Navbar.Brand>
+                        </Navbar.Header>
+                    </Navbar>
+                    <Grid>
+                        <Row>
+                            <Col md={4} sm={4}>
+                                <h3>Select Achievement</h3>
+                                    <Nav
+                                        bsStyle="pills"
+                                        stacked
+                                        activeKey={activeAchievement}
+                                        onSelect={id => {
+                                            this.setState({ activeAchievement: id });
+                                        }}
+                                    >
+                                        {Achievements.map((place, id) => (
+                                            <NavItem key={id} eventKey={id}>{place.name}</NavItem>
+                                        ))}
+                                    </Nav>
+                            </Col>
+                                <Col md={8} sm={8}>
+                                <AchievementsDisplay
+                                    key={activeAchievement}
+                                    id={Achievements[activeAchievement].id}
+                                />
+                            </Col>
+                        </Row>
+                    </Grid>
                 </div>
             );
         }else {
             return (
-                <div className="NotSelected">
-                    {Achievements.map((place, id) => (
-                        <button
-                            key={id}
-                            onClick={() => {
-                                this.setState({activeAchievement: id});
-                            }}
-                        >
-                            {place.name}
-                        </button>
-                    ))}
-                    <AchievementNotSelected />
+                <div>
+                    <Navbar>
+                        <Navbar.Header>
+                            <Navbar.Brand>
+                                Unicorn Game Achievements
+                            </Navbar.Brand>
+                        </Navbar.Header>
+                    </Navbar>
+                    <Grid>
+                        <Row>
+                            <Col md={4} sm={4}>
+                                <h3>Select Achievement</h3>
+                                <Nav
+                                    bsStyle="pills"
+                                    stacked
+                                    activeKey={activeAchievement}
+                                    onSelect={id => {
+                                        this.setState({ activeAchievement: id });
+                                    }}
+                                >
+                                    {Achievements.map((place, id) => (
+                                        <NavItem key={id} eventKey={id}>{place.name}</NavItem>
+                                    ))}
+                                </Nav>
+                            </Col>
+                            <Col md={8} sm={8}>
+                                <AchievementNotSelected />
+                            </Col>
+                        </Row>
+                    </Grid>
                 </div>
             );
         }
