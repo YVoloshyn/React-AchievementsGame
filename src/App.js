@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
+import './index.css';
+import 'bootstrap/css/bootstrap.css';
+import 'bootstrap/css/bootstrap-theme.css';
+
 //import "bootstrap/dist/css/bootstrap.css";
-import "bootswatch/journal/bootstrap.css";
+//import "bootswatch/journal/bootstrap.css";
+
 
 
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
@@ -106,11 +111,11 @@ class App extends Component {
         if (activeAchievement !== null) {
             return (
                 <div>
-                    <div class="p-3 mb-2 bg-primary text-white">
+                    <div className="p-3 mb-2 bg-primary text-white">
                     <Navbar>
                         <Navbar.Header>
                             <Navbar.Brand>
-                                Unicorn Game Achievements
+                                <h1>Unicorn Game Achievements</h1>
                             </Navbar.Brand>
                         </Navbar.Header>
                     </Navbar>
@@ -147,7 +152,7 @@ class App extends Component {
         }else {
             return (
                 <div>
-                    <div class="p-3 mb-2 bg-primary text-white">
+                    <div className="p-3 mb-2 bg-primary text-white">
                     <Navbar >
                         <Navbar.Header>
                             <Navbar.Brand>
@@ -169,6 +174,7 @@ class App extends Component {
                                         this.setState({ activeAchievement: id });
                                     }}
                                 >
+
                                     {Achievements.map((name, id) => (
                                         <NavItem key={id} eventKey={id}>{name.name}</NavItem>
                                     ))}
