@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+//import "bootswatch/journal/bootstrap.css";
+
+
+
 import { Navbar, NavItem, Nav, Grid, Row, Col } from "react-bootstrap";
 
 const Achievements = [
@@ -46,33 +50,33 @@ class AchievementsDisplay extends Component{
         const ID = this.state.ID;
         if (ID == 1 || ID == null) {
             return (
-                <div>
-                    <h2>Want to have "{Name}"? Check what you need:</h2>
+                <div align="center">
                     <img src={require('./magnetBomb.png')} alt="img"/>
+                    <h2>Want to have "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
             );
         }else if (ID == 2 || ID == null) {
             return (
-                <div>
-                    <h2>Want to become a "{Name}"? Check what you need:</h2>
+                <div align="center">
                     <img src={require('./perfectionist.png')} alt="img"/>
+                    <h2>Want to become a "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
             );
         }else if (ID == 3 || ID == null) {
             return (
-                <div>
-                    <h2>Want to get a "{Name}"? Check what you need:</h2>
+                <div align="center">
                     <img src={require('./nightShift.png')} alt="img"/>
+                    <h2>Want to get a "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
             );
         }else if (ID == 4 || ID == null) {
             return (
-                <div>
-                    <h2>Want to get a "{Name}"? Check what you need:</h2>
+                <div align="center">
                     <img src={require('./ninja.png')} alt="img"/>
+                    <h2>Want to get a "{Name}"? Check what you need:</h2>
                     <p>{Text}</p>
                 </div>
             );
@@ -84,7 +88,9 @@ class AchievementsDisplay extends Component{
 class AchievementNotSelected extends Component {
     render() {
         return (
+            <div align="center">
             <h2>Please, select any Achievement to read more!</h2>
+            </div>
         )
     }
 }
@@ -112,20 +118,20 @@ class App extends Component {
                         <Row>
                             <Col md={4} sm={4}>
                                 <h3>Select Achievement</h3>
-                                    <Nav
-                                        bsStyle="pills"
-                                        stacked
-                                        activeKey={activeAchievement}
-                                        onSelect={id => {
-                                            this.setState({ activeAchievement: id });
-                                        }}
-                                    >
-                                        {Achievements.map((place, id) => (
-                                            <NavItem key={id} eventKey={id}>{place.name}</NavItem>
-                                        ))}
-                                    </Nav>
+                                <Nav
+                                    bsStyle="pills"
+                                    stacked
+                                    activeKey={activeAchievement}
+                                    onSelect={id => {
+                                        this.setState({ activeAchievement: id });
+                                    }}
+                                >
+                                    {Achievements.map((place, id) => (
+                                        <NavItem key={id} eventKey={id}>{place.name}</NavItem>
+                                    ))}
+                                </Nav>
                             </Col>
-                                <Col md={8} sm={8}>
+                            <Col md={8} sm={8}>
                                 <AchievementsDisplay
                                     key={activeAchievement}
                                     id={Achievements[activeAchievement].id}
